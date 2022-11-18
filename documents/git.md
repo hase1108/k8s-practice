@@ -1,44 +1,24 @@
-# 開発環境
+# git環境構築
 
-## 目標
-
-- モダンな開発環境を構築する
-- macを利用しようが何しようが開発可能なようにコンテナベースの開発環境を構築する
-- 可能であればローカルpc上でk8sクラスタを構築して動作確認などできるようにしたい
-- そのうちcontainerdにしたい
-
-### 理想
-
-ubuntu(wsl2) -> containerd(開発環境) -> containerd/k8s(動作確認環境)
-                    ↑
-               intelij/vscode
-
-本番環境
-gcp
-
-## 実環境
-
-ubuntu(wsl2) -> -> docker/k8s(動作確認環境)
-     ↑
-intelij/vscode
-
-本番環境
-gcp
-
-## git環境構築
+## git初期設定
 
 gitは基本的に最初から入っている
+
 以下の初期設定をする
 ```bash
+# wsl
 git config --global user.name "haseesah"
 git config --global user.email "hase1108shoiti@yahoo.co.jp"
 ```
 
-GCMのセットアップ
+GCMのセットアップを行ってホストマシンのwindows側で設定されている認証情報を利用する
+参考
 https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git#git-credential-manager-setup
 https://zenn.dev/ttani/articles/wsl2-git-credential-manager
 
-```
+windows側でGCMのセットアップ後以下実行
+```bash
+# wsl
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe"
 ```
 
